@@ -39,9 +39,11 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
+          © {new Date().getFullYear()} &middot; Shema Valentin All Right
+          Reserved
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          {/* <p>&copy; Shema Valentin All Right Reserved </p> */}
+          {/* <a href="">Shema Valentin</a> */}
         </footer>
       </div>
     </>
