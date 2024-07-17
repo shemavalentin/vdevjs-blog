@@ -3,6 +3,10 @@ title: "Why I Love Ice Cream"
 date: "2017-08-10"
 ---
 
+<!-- this three hyphens show the front matter portion of the markdown object that we can access -->
+
+<!-- Now the other part is what will be built into html to build the website -->
+
 ### Ice cream is the best.
 
 I scream, you scream, we all scream, because there's no more ice cream. No one's rhyming about spinach.
