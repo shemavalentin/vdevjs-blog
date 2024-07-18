@@ -1,10 +1,29 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+
+const Title = styled.h1`
+  display: inline-block;
+`
+// making the title ckickable
+const BlogLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
+const BlogTitle = styled.h3`
+  margin-bottom: 20px;
+
+  &:hover {
+    color: #1dcaff;
+  }
+`
+
+const BlogBody = styled.div`
+  margin-bottom: 50px;
+`
 
 export default ({ data }) => {
   console.log(data)
@@ -12,44 +31,39 @@ export default ({ data }) => {
     <Layout>
       <Seo title="Home" />
       <div>
-        <h1>JsReactTech Demistified </h1>
-        <h3>{data.allMarkdownRemark.totalCount} </h3>
+        <Title>JsReactTech Demistified </Title>
+        <h4>{data.allMarkdownRemark.totalCount} Posts </h4>
         {/* Javascript tag to loop into the edges in the graphQl querries */}
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <h2>
-              <span>
-                {node.frontmatter.tittle} - {node.frontmatter.date}
+          <BlogBody key={node.id}>
+            <BlogLink to={node.fields.slug}>
+              <BlogTitle>
+                {node.frontmatter.tittle} <span>- {node.frontmatter.date}</span>
                 <p>{node.excerpt}</p>
-              </span>
-            </h2>
-          </div>
+              </BlogTitle>
+              <p>{node.frontmatter.description || node.excerpt}</p>
+            </BlogLink>
+          </BlogBody>
         ))}
       </div>
     </Layout>
   )
 }
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-
-// Now calling the graphql querry inside this file
-
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
           id
           frontmatter {
-            description
             title
             date
+            description
           }
-
+          fields {
+            slug
+          }
           excerpt
         }
       }
