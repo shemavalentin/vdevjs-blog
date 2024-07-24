@@ -1,6 +1,6 @@
 ---
 title: "Why I Love Ice Cream"
-date: "2017-08-10"
+date: "2024-07-24"
 ---
 
 <!-- this three hyphens show the front matter portion of the markdown object that we can access -->

@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 
 const Title = styled.h1`
   display: inline-block;
@@ -29,7 +29,7 @@ export default ({ data }) => {
   console.log(data)
   return (
     <Layout>
-      <Seo title="Home" />
+      <SEO title="Home" />
       <div>
         <Title>JsReactTech Demistified </Title>
         <h4>{data.allMarkdownRemark.totalCount} Posts </h4>
@@ -38,7 +38,7 @@ export default ({ data }) => {
           <BlogBody key={node.id}>
             <BlogLink to={node.fields.slug}>
               <BlogTitle>
-                {node.frontmatter.tittle} <span>- {node.frontmatter.date}</span>
+                {node.frontmatter.title} <span>- {node.frontmatter.date}</span>
                 <p>{node.excerpt}</p>
               </BlogTitle>
               <p>{node.frontmatter.description || node.excerpt}</p>

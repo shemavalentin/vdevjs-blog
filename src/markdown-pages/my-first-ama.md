@@ -1,6 +1,6 @@
 ---
 title: "My First AMA"
-date: "2017-08-21"
+date: "2024-07-24"
 description: "My first AMA :)"
 ---
 
