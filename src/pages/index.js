@@ -5,8 +5,9 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Title = styled.h1`
+const Title = styled.h2`
   display: inline-block;
+  color: darkorange;
 `
 // making the title ckickable
 const BlogLink = styled(Link)`
@@ -26,12 +27,11 @@ const BlogBody = styled.div`
 `
 
 export default ({ data }) => {
-  console.log(data)
   return (
     <Layout>
-      <SEO title="Home" />
       <div>
-        <Title>JsReactTech Demistified </Title>
+        <SEO title="Home" />
+        <Title>ON DEMAND TECH INFO</Title>
         <h4>{data.allMarkdownRemark.totalCount} Posts </h4>
         {/* Javascript tag to loop into the edges in the graphQl querries */}
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -39,10 +39,10 @@ export default ({ data }) => {
             <BlogLink to={node.fields.slug}>
               <BlogTitle>
                 {node.frontmatter.title} <span>- {node.frontmatter.date}</span>
-                <p>{node.excerpt}</p>
+                {/* <p>{node.excerpt}</p> */}
               </BlogTitle>
-              <p>{node.frontmatter.description || node.excerpt}</p>
             </BlogLink>
+            <p>{node.frontmatter.description || node.excerpt}</p>
           </BlogBody>
         ))}
       </div>
