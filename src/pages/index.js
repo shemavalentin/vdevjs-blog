@@ -31,7 +31,7 @@ export default ({ data }) => {
     <Layout>
       <div>
         <SEO title="Home" />
-        <Title>ON DEMAND TECH INFO</Title>
+        <Title>Cutting Edge Technologies Dev Info</Title>
         <h4>{data.allMarkdownRemark.totalCount} Posts </h4>
         {/* Javascript tag to loop into the edges in the graphQl querries */}
         {data.allMarkdownRemark.edges.map(({ node }) => (
